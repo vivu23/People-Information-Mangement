@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG" monitorInterval="5">
+	<Properties>
+		<Property name="log-path">logs</Property>
+	</Properties>
+	<Appenders>
+		<!-- 	%d is date
+    			%p is event level (DEBUG, INFO, ERROR, etc.)
+    			%C is caller class (expensive operation)
+    			%F is caller class file name (expensive operation)
+    			%L is caller line # in the class file (expensive operation)
+    			%t is thread name that generated the log entry
+    			%m is message argument passed to log call
+    			%n is platform-specific line separator \n or \r\n -->
+		<RollingFile name="MyRollingFile" fileName="${log-path}/log4j2demo.log"
+			filePattern="${log-path}/log4j2demo-%d{yyyy-MM-dd}-%i.log" >
+			<PatternLayout>
+				<pattern>%d{dd/MMM/yyyy HH:mm:ss,SSS} %c{1}: %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="200 B" />
+			</Policies>
+			<DefaultRolloverStrategy max="4"/>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="debug" additivity="false">
+			<AppenderRef ref="MyRollingFile"/>
+		</Root>
+	</Loggers>
+</Configuration>

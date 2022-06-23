@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/login",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"username\":\"ragnar\",\"password\":\"28c51e83fc8973a4aaba1c18f78f76dc5a0b5f14fb894e6369acbf03840c0f27\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response": {
+    "status": 200,
+    "body": "{\"session_id\":\"i am a session token\"}",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
